@@ -210,6 +210,20 @@ video{width:100%; max-width:100%; display:block; border-radius:4px; background:#
 .testfuss div{min-width:0}
 .testfuss h3{color:#fff; margin-bottom:7px}
 .testfuss p{color:#b9bac4; font-size:.94rem}
+.randnotiz{color:#8d8f9e; font-size:.9rem; margin-top:18px}
+/* Warnung fuer Seiten, die im Fenster einer App laufen. Dort gibt es kein Mikrofon. */
+.warnung{
+  background:color-mix(in srgb, var(--rot) 13%, #15171f);
+  border:1px solid color-mix(in srgb, var(--rot) 45%, transparent);
+  border-radius:4px; padding:22px; margin-bottom:26px;
+  display:flex; flex-direction:column; gap:12px;
+}
+.warnung h3{color:#fff}
+.warnung p{color:#e2d5d8; font-size:.97rem; max-width:52em}
+.warnung .wiebox{color:#c7c8d2; font-size:.93rem; line-height:1.9}
+.warnung strong{color:#fff; font-weight:600}
+.linkzeile{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:4px}
+.linkzeile .adresse{font-size:.86rem}
 /* Der Anrufknopf liegt unten am Rand. Darunter Platz lassen. */
 .kontakt{padding-bottom:clamp(130px,17vw,180px)}
 </style>
@@ -241,6 +255,17 @@ video{width:100%; max-width:100%; display:block; border-radius:4px; background:#
       <p>Kein Download, keine Anmeldung, keine Rufnummer. Es läuft im Browser, am Handy genauso wie am Rechner. Sprechen Sie einfach so, wie Sie mit einem Mitarbeiter sprechen würden.</p>
     </div>
 
+    <div class="warnung" id="warnung" hidden>
+      <h3>Diese Seite aus WhatsApp heraus geöffnet?</h3>
+      <p>Dann läuft sie im Fenster der App, und dort gibt kein Handy das Mikrofon frei. Öffnen Sie die Seite einmal richtig im Browser, dann geht der Anruf.</p>
+      <p class="wiebox"><strong>iPhone:</strong> unten rechts auf das Symbol mit dem Pfeil tippen, dann „In Safari öffnen“.<br>
+      <strong>Android:</strong> oben rechts auf die drei Punkte tippen, dann „In Chrome öffnen“ oder „Im Browser öffnen“.</p>
+      <div class="linkzeile">
+        <span class="adresse" id="seitenlink">https://popovicidavid6-ui.github.io/</span>
+        <button class="kopieren" id="linkkopieren" type="button">Link kopieren</button>
+      </div>
+    </div>
+
     <p class="pfeil">
       <span>Der rote Knopf <b>Anruf starten</b> liegt unten am Bildschirmrand und bleibt beim Scrollen stehen.</span>
       <i aria-hidden="true">↓</i>
@@ -254,7 +279,7 @@ video{width:100%; max-width:100%; display:block; border-radius:4px; background:#
           <li><b>02</b><div><strong>Mikrofon erlauben.</strong> Der Browser fragt einmal. Danach nie wieder.</div></li>
           <li><b>03</b><div><strong>Reden.</strong> Nicht warten, nicht deutlich sprechen müssen. Fallen Sie ihm ruhig ins Wort.</div></li>
         </ol>
-        <p style="color:#8d8f9e; font-size:.9rem; margin-top:18px">Kein Mikrofon zur Hand? Im Fenster können Sie stattdessen tippen.</p>
+        <p class="randnotiz">Fragt niemand nach dem Mikrofon und es passiert nichts? Dann läuft die Seite im Fenster einer App. Einmal im Browser öffnen, dann geht es. Oder Sie tippen Ihre Fragen einfach ins Anruffenster.</p>
       </div>
 
       <div class="karte">
@@ -518,6 +543,40 @@ video{width:100%; max-width:100%; display:block; border-radius:4px; background:#
       setTimeout(function(){ kop.textContent = "Adresse kopieren"; }, 2400);
     }
   });
+
+  // Seiten, die im Fenster einer App laufen, bekommen kein Mikrofon.
+  // Dann steht oben die Anleitung, wie man sie richtig im Browser oeffnet.
+  var ua = navigator.userAgent || "";
+  var imFenster = /FBAN|FBAV|FB_IAB|Instagram|LinkedInApp|Line\/|MicroMessenger|TikTok|Snapchat|Pinterest|GSA\/|OKApp|WhatsApp/i.test(ua);
+  if (!imFenster && /Android/i.test(ua) && /\bwv\b/i.test(ua)) { imFenster = true; }
+  if (!imFenster && !navigator.mediaDevices) { imFenster = true; }
+  if (imFenster) {
+    var w = document.getElementById("warnung");
+    if (w) { w.hidden = false; }
+  }
+
+  var lkop = document.getElementById("linkkopieren");
+  if (lkop) {
+    lkop.addEventListener("click", function(){
+      var feld = document.getElementById("seitenlink");
+      var adr = location.origin + location.pathname;
+      feld.textContent = adr;
+      var fertig = function(){
+        lkop.textContent = "Kopiert";
+        setTimeout(function(){ lkop.textContent = "Link kopieren"; }, 1800);
+      };
+      var markieren = function(){
+        var r = document.createRange();
+        r.selectNodeContents(feld);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        lkop.textContent = "Markiert — jetzt kopieren";
+        setTimeout(function(){ lkop.textContent = "Link kopieren"; }, 2400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(adr).then(fertig, markieren);
+      } else { markieren(); }
+    });
+  }
 })();
 </script>
 <!-- Der Anrufknopf. Liegt unten am Bildschirmrand und bleibt beim Scrollen stehen. -->
