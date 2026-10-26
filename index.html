@@ -108,5 +108,24 @@ h1 em{font-style:normal; color:var(--rot)}
     Beide Demos arbeiten mit Beispieldaten erfundener Betriebe.
   </div>
 </div>
+<script>
+// Zaehlt einen Seitenaufruf in Davids eigener n8n-Tabelle.
+// Keine Cookies, keine IP, keine Kennung. Nur Zeit, Seite, Herkunftsdomain, Handy oder Rechner.
+(function () {
+  try {
+    fetch("https://popovicidavid.app.n8n.cloud/webhook/besuch", {
+      method: "POST",
+      keepalive: true,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        seite: location.pathname,
+        herkunft: document.referrer,
+        geraet: navigator.userAgent
+      })
+    }).catch(function () {});
+  } catch (e) {}
+})();
+</script>
+
 </body>
 </html>
