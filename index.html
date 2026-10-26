@@ -3,591 +3,110 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="KI-Telefonassistent für Autohäuser. Auf dieser Seite können Sie ihn direkt anrufen und selbst testen – vom Handy oder vom Rechner.">
+<title>KI-Telefonassistent zum Testen</title>
+<meta name="description" content="Zwei Demos zum Selbstanrufen: ein Telefonassistent für Autohäuser und einer für Zahnarztpraxen. Ohne Anmeldung, im Browser.">
 <meta name="robots" content="noindex, nofollow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Telefonassistent für Autohäuser – zum Testen">
-<meta property="og:description" content="Rufen Sie den Assistenten direkt von dieser Seite aus an. Kein Download, keine Anmeldung, keine Rufnummer.">
-<meta property="og:image" content="assets/poster.jpg">
-<meta property="og:locale" content="de_DE">
 <meta name="theme-color" content="#12131a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KI-Telefonassistent zum Testen">
+<meta property="og:description" content="Zwei Demos zum Selbstanrufen. Ohne Anmeldung, direkt im Browser.">
+<meta property="og:locale" content="de_DE">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2312131a'/%3E%3Cpath d='M9 11c0-1 1-2 2-2h2l2 4-2 2c1 2 2 3 4 4l2-2 4 2v2c0 1-1 2-2 2-7 0-12-5-12-12z' fill='%23d4123c'/%3E%3C/svg%3E">
-<title>Telefonassistent für Autohäuser</title>
 <style>
 /* Schriften liegen auf diesem Server. Keine Verbindung zu Google. */
-@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url(schrift/Archivo-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url(schrift/Archivo-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url(schrift/Archivo-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url(schrift/Archivo-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Archivo';font-style:normal;font-weight:800;font-display:swap;src:url(schrift/Archivo-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Archivo';font-style:normal;font-weight:800;font-display:swap;src:url(schrift/Archivo-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(schrift/JetBrainsMono-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(schrift/JetBrainsMono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(schrift/JetBrainsMono-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(schrift/JetBrainsMono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url(schrift/SourceSans3-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url(schrift/SourceSans3-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:600;font-display:swap;src:url(schrift/SourceSans3-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
-@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:600;font-display:swap;src:url(schrift/SourceSans3-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-</style>
-<style>
-/* Layout: schmale Mittelspalte, jeder Abschnitt eine eigene Flaeche; Gespraech als Transkript-Leiste */
+@font-face{font-family:'Archivo';font-style:normal;font-weight:800;font-display:swap;src:url(/schrift/Archivo-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212,U+FEFF,U+FFFD}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:800;font-display:swap;src:url(/schrift/Archivo-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+1E00-1E9F,U+2020,U+20A0-20AB,U+A720-A7FF}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url(/schrift/Archivo-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+FEFF,U+FFFD}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url(/schrift/SourceSans3-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+FEFF,U+FFFD}
+@font-face{font-family:'Source Sans 3';font-style:normal;font-weight:400;font-display:swap;src:url(/schrift/SourceSans3-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+1E00-1E9F,U+20A0-20AB,U+A720-A7FF}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/schrift/JetBrainsMono-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+FEFF,U+FFFD}
+
+/* Layout: eine Mittelspalte, darin zwei gleich schwere Karten nebeneinander */
 :root{
-  --grund:#faf8f6;
-  --tief:#12131a;
-  --flaeche:#ffffff;
-  --linie:#e3dedb;
-  --text:#1b1c22;
-  --leise:#6b6a73;
-  --rot:#d4123c;
-  --gruen:#1d7a4c;
+  --tief:#12131a; --flaeche:#181a23; --linie:#282b36;
+  --text:#edeef2; --leise:#9b9ca8; --rot:#d4123c;
   --display:"Archivo","Helvetica Neue",Arial,sans-serif;
   --body:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --grund:#0d0e13; --tief:#07080c; --flaeche:#15171f; --linie:#272a35;
-    --text:#edeef2; --leise:#9b9ca8; --rot:#ff4d6d; --gruen:#4ad48c;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --grund:#0d0e13; --tief:#07080c; --flaeche:#15171f; --linie:#272a35;
-  --text:#edeef2; --leise:#9b9ca8; --rot:#ff4d6d; --gruen:#4ad48c;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+html,body{margin:0}
 body{
-  background:var(--grund); color:var(--text);
+  background:var(--tief); color:var(--text);
   font-family:var(--body); font-size:17px; line-height:1.6;
-  margin:0; padding:0;
+  min-height:100%;
 }
-.wrap{max-width:860px; margin:0 auto; padding-inline:20px}
-h1,h2,h3{font-family:var(--display); text-wrap:balance; margin:0; letter-spacing:-0.02em}
-h1{font-size:clamp(2.1rem,6vw,3.6rem); font-weight:800; line-height:1.04}
-h2{font-size:clamp(1.5rem,3.6vw,2.1rem); font-weight:700; line-height:1.15}
-h3{font-size:1.06rem; font-weight:600}
-p{margin:0}
-a{color:inherit}
-.marke{
-  font-family:var(--mono); font-size:.72rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--leise);
+.wrap{max-width:900px; margin:0 auto; padding-inline:20px; padding-block:clamp(52px,9vw,110px)}
+.marke{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:#7e808d}
+h1{
+  font-family:var(--display); font-weight:800; letter-spacing:-0.025em;
+  font-size:clamp(1.65rem,5vw,3.3rem); line-height:1.08; margin:18px 0 0;
+  text-wrap:balance; color:#fff;
+  /* "KI-Telefonassistenten" passt sonst in keine Handyspalte */
+  hyphens:auto; overflow-wrap:break-word;
 }
+h1 em{font-style:normal; color:var(--rot)}
+.lead{margin-top:18px; max-width:33em; color:#c7c8d2; font-size:1.08rem}
 
-/* Kopf */
-.kopf{background:var(--tief); color:#f4f4f6; padding-block:clamp(44px,7vw,80px) clamp(40px,6vw,66px)}
-.kopf .marke{color:#8d8f9e}
-.kopf h1{color:#fff; margin-top:18px}
-.kopf h1 em{font-style:normal; color:var(--rot)}
-.kopf .lead{margin-top:20px; max-width:34em; color:#c7c8d2; font-size:1.1rem}
-.knopfreihe{display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; align-items:center}
-.knopf{
-  display:inline-flex; align-items:center; gap:10px;
-  background:var(--rot); color:#fff; border:0; cursor:pointer;
-  font-family:var(--display); font-weight:600; font-size:1rem;
-  padding:14px 24px; border-radius:3px; text-decoration:none;
+/* min(100%,...) verhindert, dass die Karte breiter wird als der Bildschirm */
+.karten{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:16px; margin-top:38px}
+.karte{
+  display:flex; flex-direction:column; min-width:0;
+  background:var(--flaeche); border:1px solid var(--linie); border-radius:6px;
+  padding:26px; text-decoration:none; color:inherit;
+  transition:border-color .15s, transform .15s;
 }
-.knopf:hover{filter:brightness(1.08)}
-.knopf.still{background:transparent; color:#f4f4f6; border:1px solid #3a3d4a}
-.kennz{display:flex; flex-wrap:wrap; gap:8px 26px; margin-top:28px; font-family:var(--mono); font-size:.76rem; color:#8d8f9e}
-
-/* Abschnitte */
-section{padding-block:clamp(44px,6vw,68px); border-top:1px solid var(--linie)}
-.kicker{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--rot)}
-.kopfzeile{display:flex; flex-direction:column; gap:10px; margin-bottom:26px}
-.kopfzeile p{color:var(--leise); max-width:40em}
-
-/* Gespraech */
-.player{
-  background:var(--flaeche); border:1px solid var(--linie); border-radius:4px;
-  padding:18px 20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+.karte:hover,.karte:focus-visible{border-color:var(--rot); transform:translateY(-2px)}
+.karte:focus-visible{outline:2px solid var(--rot); outline-offset:3px}
+.karte .fach{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--rot)}
+.karte h2{font-family:var(--display); font-weight:600; font-size:1.3rem; margin:12px 0 0; color:#fff}
+.karte p{color:var(--leise); font-size:.97rem; margin:10px 0 0; flex:1}
+.karte .knopf{
+  display:inline-flex; align-items:center; gap:9px; align-self:flex-start; margin-top:22px;
+  background:var(--rot); color:#fff; font-family:var(--display); font-weight:600;
+  font-size:.97rem; padding:12px 20px; border-radius:3px;
 }
-.play{
-  width:50px; height:50px; flex:0 0 auto; border-radius:50%; border:0; cursor:pointer;
-  background:var(--rot); color:#fff; font-size:1.05rem; display:grid; place-items:center;
-}
-.playinfo{min-width:0; flex:1 1 200px}
-.playinfo strong{font-family:var(--display); font-weight:600; display:block}
-.playinfo span{color:var(--leise); font-size:.9rem; font-family:var(--mono)}
-.transkript{margin-top:20px; display:flex; flex-direction:column; gap:2px}
-.zeile{
-  display:grid; grid-template-columns:62px 92px 1fr; gap:14px; align-items:baseline;
-  padding:11px 12px; border-radius:3px; min-width:0;
-}
-.zeile.an{background:color-mix(in srgb, var(--rot) 9%, transparent)}
-.zeit{font-family:var(--mono); font-size:.78rem; color:var(--leise); font-variant-numeric:tabular-nums}
-.wer{font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase}
-.wer.bot{color:var(--rot)}
-.wer.kunde{color:var(--leise)}
-.was{min-width:0}
-@media (max-width:560px){
-  .zeile{grid-template-columns:58px 1fr; gap:6px 12px}
-  .wer{grid-column:2}
-  .was{grid-column:2}
-}
-.systemzeile{
-  display:flex; gap:10px; align-items:center; margin-top:16px; flex-wrap:wrap;
-  font-family:var(--mono); font-size:.78rem; color:var(--gruen);
-}
-.systemzeile span{border:1px solid color-mix(in srgb, var(--gruen) 40%, transparent); padding:5px 10px; border-radius:3px}
-
-/* Video */
-video{width:100%; max-width:100%; display:block; border-radius:4px; background:#000}
-
-/* Koennen */
-.gitter{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px; background:var(--linie); border:1px solid var(--linie); border-radius:4px; overflow:hidden}
-.feld{background:var(--flaeche); padding:20px}
-.feld h3{margin-bottom:6px}
-.feld p{color:var(--leise); font-size:.95rem}
-
-/* Ablauf */
-.schritte{display:flex; flex-direction:column; gap:0}
-.schritt{display:grid; grid-template-columns:52px 1fr; gap:18px; padding-block:18px; border-bottom:1px solid var(--linie)}
-.schritt:last-child{border-bottom:0}
-.nr{font-family:var(--mono); font-size:.8rem; color:var(--rot); padding-top:3px}
-.schritt p{color:var(--leise); font-size:.96rem; margin-top:4px}
-
-/* Preis */
-.preis{background:var(--flaeche); border:1px solid var(--linie); border-radius:4px; padding:clamp(22px,4vw,32px)}
-.preiszeile{display:flex; flex-wrap:wrap; gap:26px 44px; align-items:flex-end}
-.preiszeile div{min-width:0}
-.betrag{font-family:var(--display); font-size:clamp(1.8rem,4vw,2.4rem); font-weight:800; letter-spacing:-0.03em; display:block}
-.preiszeile small{font-family:var(--mono); font-size:.76rem; color:var(--leise); letter-spacing:.06em; text-transform:uppercase}
-.preisnote{margin-top:20px; padding-top:18px; border-top:1px solid var(--linie); color:var(--leise); font-size:.95rem}
-
-/* Kontakt */
-.kontakt{background:var(--tief); color:#f4f4f6; border-top:0}
-.kontakt h2{color:#fff}
-.kontakt .kicker{color:var(--rot)}
-.kontaktzeile{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:22px}
-.adresse{
-  font-family:var(--mono); font-size:1rem; background:#1b1d26; border:1px solid #2b2e3a;
-  padding:13px 16px; border-radius:3px; color:#fff; user-select:all; word-break:break-all;
-}
-.kopieren{background:transparent; border:1px solid #3a3d4a; color:#f4f4f6; font-family:var(--body); font-size:.92rem; padding:13px 18px; border-radius:3px; cursor:pointer}
-.recht{margin-top:34px; border-top:1px solid #23262f; padding-top:22px}
-.recht summary{cursor:pointer; font-family:var(--mono); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:#b9bac4; list-style:none}
-.recht summary::-webkit-details-marker{display:none}
-.recht summary::before{content:"+ "; color:var(--rot)}
-.recht[open] summary::before{content:"– "}
-.rechttext{color:#8d8f9e; font-size:.88rem; line-height:1.7; margin-top:18px; display:flex; flex-direction:column; gap:14px; max-width:46em}
-.rechttext strong{color:#b9bac4; font-weight:600}
-.fuss{color:#7e808d; font-size:.86rem; margin-top:26px; padding-top:22px; border-top:1px solid #23262f; line-height:1.8}
-.fuss strong{color:#b9bac4; font-weight:600}
-@media (prefers-reduced-motion: reduce){*{animation:none!important; transition:none!important}}
-
-/* Selbst testen: dunkle Flaeche, damit der Abschnitt so schwer wiegt wie der Kopf */
-.test{background:var(--tief); color:#f4f4f6; border-top:1px solid #23262f}
-.test h2{color:#fff}
-.test .kicker{color:var(--rot)}
-.test .kopfzeile p{color:#c7c8d2}
-.pfeil{
-  display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:30px;
-  border-left:2px solid var(--rot); padding:12px 0 12px 16px; color:#c7c8d2; font-size:1.02rem;
-}
-.pfeil b{color:#fff; font-weight:600}
-.pfeil i{font-style:normal; color:var(--rot); font-size:1.3rem; line-height:1; animation:tipp 1.9s ease-in-out infinite}
-@keyframes tipp{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-.testspalten{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:18px}
-.karte{background:#15171f; border:1px solid #272a35; border-radius:4px; padding:22px; min-width:0}
-.karte h3{color:#fff; margin-bottom:16px}
-.schrittliste{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:15px}
-.schrittliste li{display:grid; grid-template-columns:24px 1fr; gap:12px; align-items:baseline; min-width:0}
-.schrittliste b{font-family:var(--mono); font-size:.8rem; font-weight:400; color:var(--rot); font-variant-numeric:tabular-nums}
-.schrittliste div{min-width:0; color:#c7c8d2; font-size:.97rem}
-.schrittliste strong{color:#fff; font-weight:600}
-.fragen{display:flex; flex-direction:column; gap:9px; margin:0; padding:0; list-style:none}
-.fragen li{
-  min-width:0; color:#edeef2; font-size:.97rem; padding:11px 14px; border-radius:3px;
-  background:#1b1d26; border-left:2px solid var(--rot);
-}
-.fragen li em{font-style:normal; display:block; margin-top:5px; font-family:var(--mono); font-size:.74rem; color:#8d8f9e; letter-spacing:.03em}
-.testfuss{
-  margin-top:18px; background:#15171f; border:1px solid #272a35; border-radius:4px;
-  padding:22px; display:grid; grid-template-columns:repeat(auto-fit,minmax(252px,1fr)); gap:20px;
-}
-.testfuss div{min-width:0}
-.testfuss h3{color:#fff; margin-bottom:7px}
-.testfuss p{color:#b9bac4; font-size:.94rem}
-.randnotiz{color:#8d8f9e; font-size:.9rem; margin-top:18px}
-/* Warnung fuer Seiten, die im Fenster einer App laufen. Dort gibt es kein Mikrofon. */
-.warnung{
-  background:color-mix(in srgb, var(--rot) 13%, #15171f);
-  border:1px solid color-mix(in srgb, var(--rot) 45%, transparent);
-  border-radius:4px; padding:22px; margin-bottom:26px;
-  display:flex; flex-direction:column; gap:12px;
-}
-.warnung h3{color:#fff}
-.warnung p{color:#e2d5d8; font-size:.97rem; max-width:52em}
-.warnung .wiebox{color:#c7c8d2; font-size:.93rem; line-height:1.9}
-.warnung strong{color:#fff; font-weight:600}
-.linkzeile{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:4px}
-.linkzeile .adresse{font-size:.86rem}
-/* Der Anrufknopf liegt unten am Rand. Darunter Platz lassen. */
-.kontakt{padding-bottom:clamp(130px,17vw,180px)}
+.hinweise{display:flex; flex-wrap:wrap; gap:8px 26px; margin-top:34px; font-family:var(--mono); font-size:.76rem; color:#7e808d}
+.fuss{margin-top:46px; padding-top:24px; border-top:1px solid var(--linie); color:#7e808d; font-size:.88rem; line-height:1.8}
+.fuss a{color:#9b9ca8}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
-
 </head>
 <body>
-<header class="kopf">
-  <div class="wrap">
-    <p class="marke">David Popovici · Leipzig</p>
-    <h1>Nach Feierabend klingelt das Telefon<br><em>weiter.</em></h1>
-    <p class="lead">Ein KI-Telefonassistent für Ihr Autohaus. Er geht beim ersten Klingeln ran, kennt Ihren Fahrzeugbestand, gibt Auskunft und trägt Termine direkt in Ihren Kalender ein. Auf Deutsch, rund um die Uhr, auch wenn zwanzig gleichzeitig anrufen.</p>
-    <div class="knopfreihe">
-      <a class="knopf" href="#test">Jetzt selbst anrufen</a>
-      <a class="knopf still" href="#gespraech">Erst ein Beispiel hören</a>
-    </div>
-    <div class="kennz">
-      <span>Beim ersten Klingeln</span>
-      <span>Mehrere Anrufe gleichzeitig</span>
-      <span>Ihre Rufnummer bleibt</span>
-    </div>
+<div class="wrap">
+  <p class="marke">David Popovici · Leipzig</p>
+  <h1>Rufen Sie einen KI-Telefonassistenten an. <em>Jetzt.</em></h1>
+  <p class="lead">Zwei Demos, beide ohne Anmeldung und ohne Rufnummer. Sie sprechen direkt im Browser, am Handy wie am Rechner. Wählen Sie die, die zu Ihnen passt.</p>
+
+  <div class="karten">
+    <a class="karte" href="/autohaus/">
+      <span class="fach">Für Autohäuser</span>
+      <h2>Autohaus Mustermann</h2>
+      <p>Fragen Sie nach einem Fahrzeug, nach Preis, Kilometern oder einer Probefahrt. Der Assistent kennt den Bestand von siebenundzwanzig Wagen und den Werkstattkalender.</p>
+      <span class="knopf">Demo öffnen →</span>
+    </a>
+
+    <a class="karte" href="/zahnarzt/">
+      <span class="fach">Für Zahnarztpraxen</span>
+      <h2>Zahnarztpraxis am Park</h2>
+      <p>Fragen Sie nach einem Termin, melden Sie Schmerzen oder einen Rezeptwunsch. Der Assistent sieht in den Kalender und gibt keine medizinischen Ratschläge.</p>
+      <span class="knopf">Demo öffnen →</span>
+    </a>
   </div>
-</header>
 
-<section class="test" id="test">
-  <div class="wrap">
-    <div class="kopfzeile">
-      <p class="kicker">Selbst testen</p>
-      <h2>Rufen Sie ihn an. Von hier aus, sofort.</h2>
-      <p>Kein Download, keine Anmeldung, keine Rufnummer. Es läuft im Browser, am Handy genauso wie am Rechner. Sprechen Sie einfach so, wie Sie mit einem Mitarbeiter sprechen würden.</p>
-    </div>
-
-    <div class="warnung" id="warnung" hidden>
-      <h3>Diese Seite aus WhatsApp heraus geöffnet?</h3>
-      <p>Dann läuft sie im Fenster der App, und dort gibt kein Handy das Mikrofon frei. Öffnen Sie die Seite einmal richtig im Browser, dann geht der Anruf.</p>
-      <p class="wiebox"><strong>iPhone:</strong> unten rechts auf das Symbol mit dem Pfeil tippen, dann „In Safari öffnen“.<br>
-      <strong>Android:</strong> oben rechts auf die drei Punkte tippen, dann „In Chrome öffnen“ oder „Im Browser öffnen“.</p>
-      <div class="linkzeile">
-        <span class="adresse" id="seitenlink">https://popovicidavid6-ui.github.io/</span>
-        <button class="kopieren" id="linkkopieren" type="button">Link kopieren</button>
-      </div>
-    </div>
-
-    <p class="pfeil">
-      <span>Der rote Knopf <b>Anruf starten</b> liegt unten am Bildschirmrand und bleibt beim Scrollen stehen.</span>
-      <i aria-hidden="true">↓</i>
-    </p>
-
-    <div class="testspalten">
-      <div class="karte">
-        <h3>In drei Schritten</h3>
-        <ol class="schrittliste">
-          <li><b>01</b><div><strong>Anruf starten</strong> antippen, im weißen Feld unten.</div></li>
-          <li><b>02</b><div><strong>Mikrofon erlauben.</strong> Der Browser fragt einmal. Danach nie wieder.</div></li>
-          <li><b>03</b><div><strong>Reden.</strong> Nicht warten, nicht deutlich sprechen müssen. Fallen Sie ihm ruhig ins Wort.</div></li>
-        </ol>
-        <p class="randnotiz">Fragt niemand nach dem Mikrofon und es passiert nichts? Dann läuft die Seite im Fenster einer App. Einmal im Browser öffnen, dann geht es. Oder Sie tippen Ihre Fragen einfach ins Anruffenster.</p>
-      </div>
-
-      <div class="karte">
-        <h3>Fragen Sie ihn das</h3>
-        <ul class="fragen">
-          <li>„Haben Sie einen BMW X3 da?“<em>Er kennt jedes Auto auf dem Hof</em></li>
-          <li>„Was ist Ihr günstigster Diesel?“<em>Er sortiert selbst</em></li>
-          <li>„Ich hätte gern eine Probefahrt, übermorgen um vierzehn Uhr.“<em>Er rechnet das Datum aus und prüft den Kalender</em></li>
-          <li>„Wie läuft das bei Ihnen mit der Finanzierung?“<em>Er erklärt die Wege – Zinsen und Raten nennt er nie</em></li>
-          <li>„Was ist mein Golf von 2016 noch wert?“<em>Er nimmt die Ankauf-Anfrage auf</em></li>
-          <li>„Haben Sie einen BMW X7?“<em>Hier sagt er Nein – und redet nicht drumherum</em></li>
-          <li>„Geht es Sonntag um elf?“<em>Da ist zu, und er sagt es</em></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="testfuss">
-      <div>
-        <h3>Womit er im Test arbeitet</h3>
-        <p>Mit dem echten Bestand eines Leipziger Autohauses: siebenundzwanzig Fahrzeuge, dazu Werkstattkalender, Öffnungszeiten und sächsische Feiertage. In Ihrem Haus bekommt er Ihren Namen, Ihren Bestand und Ihre Zeiten.</p>
-      </div>
-      <div>
-        <h3>Buchen Sie ruhig</h3>
-        <p>Legen Sie Termine an, verschieben Sie sie, sagen Sie sie ab. Es ist ein Testkalender. Geben Sie Ihre eigene Mailadresse an, dann sehen Sie, was Ihr Kunde bekommt.</p>
-      </div>
-      <div>
-        <h3>Was er nicht tut</h3>
-        <p>Er erfindet nichts. Was nicht in den Daten steht, sagt er nicht – auch nicht ungefähr. Und auf die Frage, ob Sie mit einem Menschen sprechen, antwortet er sofort mit Nein.</p>
-      </div>
-    </div>
+  <div class="hinweise">
+    <span>Ohne Anmeldung</span>
+    <span>Ohne Download</span>
+    <span>Handy und Rechner</span>
+    <span>Zwei Minuten</span>
   </div>
-</section>
 
-<section id="gespraech">
-  <div class="wrap">
-    <div class="kopfzeile">
-      <p class="kicker">So läuft ein Anruf</p>
-      <h2>Mittwoch, 20:14 Uhr. Im Haus ist niemand mehr.</h2>
-      <p>Ein Beispielgespräch, wie der Assistent es führt. Links die Uhrzeit im Gespräch, rechts das, was gesagt wird.</p>
-    </div>
-
-    <div class="player">
-      <button class="play" id="play" aria-label="Beispielgespräch abspielen">▶</button>
-      <div class="playinfo">
-        <strong>Beispielgespräch</strong>
-        <span id="zeitanzeige">00:00 / 00:22</span>
-      </div>
-    </div>
-    <audio id="ton" src="assets/gespraech.mp3" preload="metadata"></audio>
-
-    <div class="transkript" id="transkript">
-      <div class="zeile" data-ab="0.60" data-bis="4.16"><span class="zeit">00:00</span><span class="wer kunde">Anrufer</span><span class="was">Guten Tag, haben Sie aktuell einen Volkswagen Golf da?</span></div>
-      <div class="zeile" data-ab="4.42" data-bis="7.89"><span class="zeit">00:04</span><span class="wer bot">Assistent</span><span class="was">Guten Tag! Ja, drei Stück stehen bei uns auf dem Hof.</span></div>
-      <div class="zeile" data-ab="8.15" data-bis="11.42"><span class="zeit">00:08</span><span class="wer kunde">Anrufer</span><span class="was">Oh, da würde ich gern Probe fahren. Was haben Sie frei?</span></div>
-      <div class="zeile" data-ab="11.68" data-bis="15.89"><span class="zeit">00:11</span><span class="wer bot">Assistent</span><span class="was">Donnerstag sechzehn Uhr oder Samstag elf. Was passt Ihnen besser?</span></div>
-      <div class="zeile" data-ab="16.15" data-bis="18.45"><span class="zeit">00:16</span><span class="wer kunde">Anrufer</span><span class="was">Samstag um elf, auf den Namen Müller.</span></div>
-      <div class="zeile" data-ab="18.71" data-bis="22.10"><span class="zeit">00:18</span><span class="wer bot">Assistent</span><span class="was">Eingetragen, Herr Müller. Die Bestätigung kommt gleich per Mail.</span></div>
-    </div>
-
-    <div class="systemzeile">
-      <span>Bestand geprüft</span>
-      <span>Kalender geprüft</span>
-      <span>Termin angelegt</span>
-      <span>Bestätigung versendet</span>
-    </div>
+  <div class="fuss">
+    <strong>David Popovici</strong> · Mariannenstraße 80, 04315 Leipzig<br>
+    <a href="mailto:popovicidavid6@gmail.com">popovicidavid6@gmail.com</a><br>
+    Beide Demos arbeiten mit Beispieldaten erfundener Betriebe.
   </div>
-</section>
-
-<section id="video">
-  <div class="wrap">
-    <div class="kopfzeile">
-      <p class="kicker">45 Sekunden</p>
-      <h2>Das Ganze im Überblick</h2>
-    </div>
-    <video controls preload="none" poster="assets/poster.jpg" playsinline>
-      <source src="assets/werbevideo.mp4" type="video/mp4">
-    </video>
-  </div>
-</section>
-
-<section id="koennen">
-  <div class="wrap">
-    <div class="kopfzeile">
-      <p class="kicker">Was er übernimmt</p>
-      <h2>Alles, was sonst am Telefon liegen bleibt</h2>
-    </div>
-    <div class="gitter">
-      <div class="feld"><h3>Fahrzeugbestand</h3><p>Preis, Baujahr, Kilometer, Ausstattung. Auskunft zu jedem Wagen auf dem Hof.</p></div>
-      <div class="feld"><h3>Probefahrt</h3><p>Prüft den Kalender, trägt den Termin ein, schickt die Bestätigung per Mail.</p></div>
-      <div class="feld"><h3>Werkstatttermin</h3><p>Inspektion, Hauptuntersuchung, Ölwechsel, Reifen, Bremsen, Klimaservice.</p></div>
-      <div class="feld"><h3>Termin verschieben</h3><p>Findet den bestehenden Termin und legt ihn neu. Ohne Rückruf.</p></div>
-      <div class="feld"><h3>Termin absagen</h3><p>Streicht den Eintrag aus dem Kalender und bestätigt die Absage.</p></div>
-      <div class="feld"><h3>Termin nachfragen</h3><p>„Wann habe ich nochmal einen Termin?" Er sagt es auf Anhieb.</p></div>
-      <div class="feld"><h3>Ankauf</h3><p>Marke, Baujahr, Kilometer, Zustand, Preisvorstellung. Alles an Ihren Einkauf.</p></div>
-      <div class="feld"><h3>Finanzierung und Leasing</h3><p>Nimmt die Anfrage auf und gibt sie an Ihren Verkauf weiter.</p></div>
-      <div class="feld"><h3>Rückruf und Reklamation</h3><p>Will der Anrufer einen Menschen, nimmt er Nummer und Zeitfenster auf. Weiterverbinden tut er nicht, und er verspricht es auch nicht. Beschwerden gehen sofort an die Leitung.</p></div>
-      <div class="feld"><h3>Ersatzteile, Kostenvoranschlag</h3><p>Nimmt die Anfrage auf, statt den Anrufer wegzuschicken.</p></div>
-      <div class="feld"><h3>Öffnungszeiten und Anfahrt</h3><p>Zeiten, Adresse, Zahlungsarten, Ersatzwagen. Er rät nie, er weiß es.</p></div>
-      <div class="feld"><h3>Beratung</h3><p>Gewährleistung, Zulassung, Lieferung, was zur Probefahrt mitzubringen ist. Und er stellt zwei Wagen nebeneinander.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="danach">
-  <div class="wrap">
-    <div class="kopfzeile">
-      <p class="kicker">Nach dem Anruf</p>
-      <h2>Sie sehen jedes Gespräch, ohne eines zu führen</h2>
-      <p>Der Assistent arbeitet nicht im Verborgenen. Alles, was am Telefon passiert, liegt danach in Ihrem Postfach.</p>
-    </div>
-    <div class="gitter">
-      <div class="feld"><h3>Zusammenfassung per Mail</h3><p>Nach jedem Anruf: wer angerufen hat, worum es ging, was vereinbart wurde, was offen ist.</p></div>
-      <div class="feld"><h3>Wortprotokoll</h3><p>Das ganze Gespräch zum Nachlesen. Dazu die Aufnahme, wenn Sie sie hören wollen.</p></div>
-      <div class="feld"><h3>Termin im Kalender</h3><p>Nicht in einem fremden System. In dem Kalender, den Ihr Team ohnehin benutzt.</p></div>
-      <div class="feld"><h3>Erinnerungsanrufe</h3><p>Auf Wunsch ruft er Kunden am Vortag an und bestätigt den Termin. Weniger leere Hebebühnen.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="ablauf">
-  <div class="wrap">
-    <div class="kopfzeile">
-      <p class="kicker">Einrichtung</p>
-      <h2>Vier Schritte bis zum ersten Anruf</h2>
-    </div>
-    <div class="schritte">
-      <div class="schritt"><span class="nr">01</span><div><h3>Gespräch, fünfzehn Minuten</h3><p>Ich frage ab, welche Anrufe bei Ihnen am häufigsten kommen und was der Assistent können muss.</p></div></div>
-      <div class="schritt"><span class="nr">02</span><div><h3>Aufbau</h3><p>Fahrzeugbestand, Kalender und Postfach werden angebunden. Der Assistent bekommt den Namen Ihres Hauses und Ihre Gesprächsregeln.</p></div></div>
-      <div class="schritt"><span class="nr">03</span><div><h3>Test</h3><p>Sie rufen selbst an, so oft Sie wollen. Was nicht passt, wird geändert, bevor ein Kunde ihn hört.</p></div></div>
-      <div class="schritt"><span class="nr">04</span><div><h3>Schaltung</h3><p>Ihre Rufnummer bleibt. Er nimmt ab, wenn niemand abnimmt, oder außerhalb der Öffnungszeiten. Sie entscheiden.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="preis">
-  <div class="wrap">
-    <div class="kopfzeile">
-      <p class="kicker">Konditionen</p>
-      <h2>Ein Auto mehr im Monat, und er hat sich bezahlt</h2>
-    </div>
-    <div class="preis">
-      <div class="preiszeile">
-        <div><small>Einfacher Terminassistent</small><span class="betrag">ab 150 €</span></div>
-        <div><small>Mit Anbindung an Ihre Systeme</small><span class="betrag">bis 1.000 €</span></div>
-        <div><small>Mindestlaufzeit</small><span class="betrag">keine</span></div>
-      </div>
-      <p class="preisnote">Was es kostet, hängt von der Branche und vom Umfang ab. Ein Assistent, der nur Termine vergibt, liegt am unteren Ende. Ein Autohaus mit Fahrzeugbestand, Werkstattkalender und Ankauf-Anfragen am oberen. Enthalten sind Aufbau, Anbindung, Änderungen an den Gesprächen und der laufende Betrieb. Preise zuzüglich Umsatzsteuer. Die ersten dreißig Tage sind kostenlos; gefällt es Ihnen nicht, fällt nichts an.</p>
-    </div>
-  </div>
-</section>
-
-<section class="kontakt" id="kontakt">
-  <div class="wrap">
-    <p class="kicker">Kontakt</p>
-    <h2>Fünfzehn Minuten, dann wissen Sie, ob es passt</h2>
-    <p style="color:#c7c8d2; margin-top:14px; max-width:38em">Schreiben Sie mir, welches Haus Sie führen und wann Sie Zeit haben. Ich melde mich und zeige den Assistenten live. Danach bauen wir eine Demo mit Ihren echten Daten, kostenlos und unverbindlich.</p>
-    <div class="kontaktzeile">
-      <span class="adresse" id="mail">popovicidavid6@gmail.com</span>
-      <button class="kopieren" id="kopieren">Adresse kopieren</button>
-    </div>
-    <details class="recht">
-      <summary>Datenschutzerklärung</summary>
-      <div class="rechttext">
-        <p><strong>Verantwortlicher</strong><br>
-        David Popovici, Mariannenstraße 80, 04315 Leipzig, popovicidavid6@gmail.com</p>
-
-        <p><strong>Was diese Seite erhebt</strong><br>
-        Keine Cookies, keine Analyse, keine Werbenetzwerke, kein Kontaktformular. Solange Sie den Assistenten nicht anrufen, verlässt diese Seite keine Angabe von Ihnen.</p>
-
-        <p><strong>Server-Protokolle</strong><br>
-        Beim Aufruf überträgt Ihr Browser technisch notwendige Daten an den Hoster: IP-Adresse, Zeitpunkt, aufgerufene Datei, Browsertyp. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO, berechtigtes Interesse am sicheren Betrieb. Gehostet wird diese Seite bei GitHub, Inc. (Microsoft), 88 Colin P. Kelly Jr. Street, San Francisco, USA. Damit findet eine Übermittlung in ein Drittland statt.</p>
-
-        <p><strong>Der Testanruf</strong><br>
-        Der Anruf startet erst, wenn Sie auf „Anruf starten“ tippen und Ihr Mikrofon freigeben. Bis dahin wird nichts aufgenommen. Während des Anrufs werden Ihre Spracheingaben in Echtzeit an ElevenLabs, Inc., 169 Madison Ave, New York, USA übertragen und dort verarbeitet, um sie in Text umzuwandeln, eine Antwort zu erzeugen und diese vorzulesen. Dabei entstehen eine Aufnahme Ihrer Stimme und ein Wortprotokoll des Gesprächs. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie durch das Starten des Anrufs erteilen. Auch hier findet eine Übermittlung in ein Drittland statt. Sie können den Anruf jederzeit beenden; schreiben Sie mir, wenn die Aufnahme gelöscht werden soll.</p>
-
-        <p><strong>Was Sie im Anruf nennen</strong><br>
-        Nennen Sie im Test einen Namen, eine Telefonnummer oder eine Mailadresse, trägt der Assistent diese in einen Testkalender ein und verschickt eine Bestätigung. Dafür laufen die Angaben über n8n GmbH (Berlin) und Google Ireland Limited (Kalender und Mail). Nennen Sie am besten nur Angaben, die Ihnen selbst gehören – und keine Daten Ihrer Kunden.</p>
-
-        <p><strong>Schriftarten</strong><br>
-        Die Schriftarten dieser Seite werden von diesem Server ausgeliefert. Das Anruffenster selbst wird von ElevenLabs geladen und lädt dabei eine eigene Schriftart von Google Fonts (Google Ireland Limited). Darauf habe ich keinen Einfluss; es betrifft nur dieses Fenster, nicht die übrige Seite.</p>
-
-        <p><strong>Kontakt per E-Mail</strong><br>
-        Schreiben Sie mir, verarbeite ich Ihre Angaben ausschließlich zur Beantwortung. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Gelöscht wird, sobald der Vorgang erledigt ist und keine Aufbewahrungsfrist entgegensteht.</p>
-
-        <p><strong>Ihre Rechte</strong><br>
-        Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Wenden Sie sich dafür an die oben genannte Adresse.</p>
-
-        <p><strong>Beschwerde</strong><br>
-        Sie können sich bei einer Aufsichtsbehörde beschweren. Zuständig ist der Sächsische Datenschutzbeauftragte, Devrientstraße 5, 01067 Dresden.</p>
-      </div>
-    </details>
-
-    <div class="fuss">
-      <strong>Angaben gemäß § 5 DDG</strong><br>
-      David Popovici<br>
-      Mariannenstraße 80<br>
-      04315 Leipzig<br>
-      E-Mail: popovicidavid6@gmail.com<br>
-      Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: David Popovici, Anschrift wie oben
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  var ton = document.getElementById("ton");
-  var play = document.getElementById("play");
-  var anzeige = document.getElementById("zeitanzeige");
-  var zeilen = Array.prototype.slice.call(document.querySelectorAll(".zeile"));
-
-  function mmss(s){
-    s = Math.max(0, Math.floor(s || 0));
-    var m = Math.floor(s / 60), r = s % 60;
-    return (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r;
-  }
-  function gesamt(){ return isFinite(ton.duration) ? ton.duration : 22; }
-
-  play.addEventListener("click", function(){
-    if (ton.paused) { ton.play().catch(function(){}); } else { ton.pause(); }
-  });
-  ton.addEventListener("play", function(){ play.textContent = "❚❚"; });
-  ton.addEventListener("pause", function(){ play.textContent = "▶"; });
-  ton.addEventListener("ended", function(){
-    play.textContent = "▶";
-    zeilen.forEach(function(z){ z.classList.remove("an"); });
-  });
-  ton.addEventListener("timeupdate", function(){
-    anzeige.textContent = mmss(ton.currentTime) + " / " + mmss(gesamt());
-    var t = ton.currentTime;
-    zeilen.forEach(function(z){
-      var ab = parseFloat(z.dataset.ab), bis = parseFloat(z.dataset.bis);
-      z.classList.toggle("an", t >= ab - 0.15 && t < bis + 0.15);
-    });
-  });
-  ton.addEventListener("loadedmetadata", function(){
-    anzeige.textContent = "00:00 / " + mmss(gesamt());
-  });
-  zeilen.forEach(function(z){
-    z.style.cursor = "pointer";
-    z.addEventListener("click", function(){
-      ton.currentTime = parseFloat(z.dataset.ab);
-      ton.play().catch(function(){});
-    });
-  });
-
-  var kop = document.getElementById("kopieren");
-  kop.addEventListener("click", function(){
-    var text = document.getElementById("mail").textContent.trim();
-    var fertig = function(){
-      kop.textContent = "Kopiert";
-      setTimeout(function(){ kop.textContent = "Adresse kopieren"; }, 1800);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(fertig, auswaehlen);
-    } else { auswaehlen(); }
-    function auswaehlen(){
-      var r = document.createRange();
-      r.selectNodeContents(document.getElementById("mail"));
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      kop.textContent = "Markiert — jetzt kopieren";
-      setTimeout(function(){ kop.textContent = "Adresse kopieren"; }, 2400);
-    }
-  });
-
-  // Seiten, die im Fenster einer App laufen, bekommen kein Mikrofon.
-  // Dann steht oben die Anleitung, wie man sie richtig im Browser oeffnet.
-  var ua = navigator.userAgent || "";
-  var imFenster = /FBAN|FBAV|FB_IAB|Instagram|LinkedInApp|Line\/|MicroMessenger|TikTok|Snapchat|Pinterest|GSA\/|OKApp|WhatsApp/i.test(ua);
-  if (!imFenster && /Android/i.test(ua) && /\bwv\b/i.test(ua)) { imFenster = true; }
-  if (!imFenster && !navigator.mediaDevices) { imFenster = true; }
-  if (imFenster) {
-    var w = document.getElementById("warnung");
-    if (w) { w.hidden = false; }
-  }
-
-  var lkop = document.getElementById("linkkopieren");
-  if (lkop) {
-    lkop.addEventListener("click", function(){
-      var feld = document.getElementById("seitenlink");
-      var adr = location.origin + location.pathname;
-      feld.textContent = adr;
-      var fertig = function(){
-        lkop.textContent = "Kopiert";
-        setTimeout(function(){ lkop.textContent = "Link kopieren"; }, 1800);
-      };
-      var markieren = function(){
-        var r = document.createRange();
-        r.selectNodeContents(feld);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        lkop.textContent = "Markiert — jetzt kopieren";
-        setTimeout(function(){ lkop.textContent = "Link kopieren"; }, 2400);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(adr).then(fertig, markieren);
-      } else { markieren(); }
-    });
-  }
-})();
-</script>
-<!-- Der Anrufknopf. Liegt unten am Bildschirmrand und bleibt beim Scrollen stehen. -->
-<elevenlabs-convai
-  agent-id="agent_6501m5f0t459enmt48kjdjg63rsn"
-  variant="full"
-  placement="bottom-right"
-  language="de"
-  transcript="true"
-  text-input="true"></elevenlabs-convai>
-<script src="https://unpkg.com/@elevenlabs/convai-widget-embed@0.21.0/dist/index.js" async></script>
-
+</div>
 </body>
 </html>
